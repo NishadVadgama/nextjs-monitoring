@@ -1,6 +1,5 @@
 export async function GET() {
   try {
-    throw new Error("Something went terribly wrong.")
     globalThis?.logger?.info({
       meta: {
         requestId: crypto.randomUUID(),
