@@ -1,6 +1,6 @@
 export async function GET() {
   try {
-    globalThis.metrics?.userSignups.inc({
+    globalThis.metrics?.counters.userSignups.inc({
       plan_type: "free",
       referral_source: "direct"
     });

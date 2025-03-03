@@ -20,7 +20,7 @@ services:
     ports:
       - "3100:3100"
     volumes:
-      - ./loki-config.yml:/etc/loki/local-config.yml
+      - ./dockerConfig/loki/local-config.yml:/etc/loki/local-config.yml
     command: -config.file=/etc/loki/local-config.yml
     networks:
       - monitoring
@@ -32,7 +32,7 @@ services:
     ports:
       - "9090:9090" 
     volumes:
-      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./dockerConfig/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
       - prometheus-storage:/prometheus
     networks:
       - monitoring
@@ -43,7 +43,7 @@ services:
     restart: always
     command: ["--config=/etc/otel-collector-config.yml"]
     volumes:
-      - ./otel-collector-config.yml:/etc/otel-collector-config.yml
+      - ./dockerConfig/otel/otel-collector-config.yml:/etc/otel-collector-config.yml
     ports:
       - "4317:4317"   # OTLP gRPC receiver
       - "4318:4318"   # OTLP HTTP receiver
